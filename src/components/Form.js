@@ -1,7 +1,24 @@
+import React, { useState } from "react";
+
 import dollar from "../images/icon-dollar.svg";
 import person from "../images/icon-person.svg";
 
-const Form = ({ setBill, setTip, setPeople }) => {
+const Form = ({ setBill, setTip, setPeople, tip, bill, people }) => {
+  const handlerBill = (e) => {
+    const target = +e.target.value.replace(/[^\d]+/g, "");
+    setBill(target);
+  };
+
+  const handlerPeople = (e) => {
+    const target = +e.target.value.replace(/[^\d]+/g, "");
+    setPeople(target);
+  };
+
+  const handlerTip = (e) => {
+    const target = +e.target.value.replace(/[^\d]+/g, "");
+    setTip(target);
+  };
+
   return (
     <div className="w-full relative lg:w-[50%]">
       <form className="flex flex-col p-5">
@@ -12,14 +29,13 @@ const Form = ({ setBill, setTip, setPeople }) => {
           type="text"
           name="Bill"
           className="bg-[#f4fafa] p-3 text-right"
-          onInput={(e) => {
-            setBill(+e.target.value);
-          }}
+          value={bill}
+          onInput={handlerBill}
         />
         <img
           src={dollar}
           alt=""
-          className="w-[15px] absolute top-[16%] left-[7%]"
+          className="w-[15px] absolute top-[14%] left-[7%] md:left-[4%] lg:top-[16%] lg:left-[7%]"
         />
         <div className="tips-selection mt-5">
           <p className="font-bold text-2xl text-[#00494d] mb-5">
@@ -29,9 +45,7 @@ const Form = ({ setBill, setTip, setPeople }) => {
             <button
               type="button"
               value="5"
-              onClick={(e) => {
-                setTip(+e.target.value);
-              }}
+              onClick={handlerTip}
               className="bg-[#00494d] py-2 px-10 text-center text-white font-bold rounded-md focus:bg-[#33c2ae]"
             >
               5%
@@ -40,9 +54,7 @@ const Form = ({ setBill, setTip, setPeople }) => {
             <button
               type="button"
               value="10"
-              onClick={(e) => {
-                setTip(+e.target.value);
-              }}
+              onClick={handlerTip}
               className="bg-[#00494d] py-2 px-10 text-center text-white font-bold rounded-md focus:bg-[#33c2ae]"
             >
               10%
@@ -51,9 +63,7 @@ const Form = ({ setBill, setTip, setPeople }) => {
             <button
               type="button"
               value="15"
-              onClick={(e) => {
-                setTip(+e.target.value);
-              }}
+              onClick={handlerTip}
               className="bg-[#00494d] py-2 px-10 text-center text-white font-bold rounded-md focus:bg-[#33c2ae]"
             >
               15%
@@ -62,9 +72,7 @@ const Form = ({ setBill, setTip, setPeople }) => {
             <button
               type="button"
               value="25"
-              onClick={(e) => {
-                setTip(+e.target.value);
-              }}
+              onClick={handlerTip}
               className="bg-[#00494d] py-2 px-10 text-center text-white font-bold rounded-md focus:bg-[#33c2ae]"
             >
               25%
@@ -73,9 +81,7 @@ const Form = ({ setBill, setTip, setPeople }) => {
             <button
               type="button"
               value="50"
-              onClick={(e) => {
-                setTip(+e.target.value);
-              }}
+              onClick={handlerTip}
               className="bg-[#00494d] py-2 px-10 text-center text-white font-bold rounded-md focus:bg-[#33c2ae]"
             >
               50%
@@ -85,9 +91,8 @@ const Form = ({ setBill, setTip, setPeople }) => {
               type="text"
               placeholder="Custom"
               className=" bg-[#ddd] text-center  font-bold rounded-md"
-              onInput={(e) => {
-                setTip(+e.target.value);
-              }}
+              value={tip}
+              onInput={handlerTip}
             />
           </div>
         </div>
@@ -103,9 +108,8 @@ const Form = ({ setBill, setTip, setPeople }) => {
             type="text"
             name="Bill"
             className="bg-[#f4fafa] p-3 text-right"
-            onInput={(e) => {
-              setPeople(e.target.value);
-            }}
+            value={people}
+            onInput={handlerPeople}
           />
 
           <img

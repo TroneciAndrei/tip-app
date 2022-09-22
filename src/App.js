@@ -19,7 +19,11 @@ function App() {
   }, [bill, tip, people, tipPerPerson]);
 
   const handleResetBtn = () => {
-    console.log("reset");
+    setBill("");
+    setTip("");
+    setPeople("");
+    setTipPerPerson(0);
+    setTotal(0);
   };
 
   return (
@@ -27,6 +31,8 @@ function App() {
       <img src={Logo} alt="Splitter Logo" className="mb-10" />
       <div className="container bg-white rounded-md flex items-center gap-10 flex-col lg:flex-row">
         <Form
+          bill={bill}
+          people={people}
           tip={tip}
           setBill={setBill}
           setTip={setTip}

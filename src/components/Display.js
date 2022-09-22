@@ -1,4 +1,4 @@
-const Display = ({ total, tipPerPerson, people }) => {
+const Display = ({ total, tipPerPerson, people, handleResetBtn }) => {
   const returnCurrency = (amt) => {
     return new Intl.NumberFormat("en-US", {
       style: "currency",
@@ -33,6 +33,7 @@ const Display = ({ total, tipPerPerson, people }) => {
           type="button"
           title="Reset"
           className="bg-[#33c2ae] w-full py-2 font-bold text-lg text-[#00494d] rounded-lg"
+          onClick={handleResetBtn}
         >
           Reset
         </button>
