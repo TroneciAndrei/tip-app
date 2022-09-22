@@ -27,9 +27,9 @@ function App() {
   };
 
   return (
-    <div className="wrapper flex h-screen flex-col justify-center items-center max-w-[1000px] m-auto">
+    <div className="wrapper flex md:h-screen flex-col justify-center items-center max-w-[1000px] m-auto">
       <img src={Logo} alt="Splitter Logo" className="mb-10" />
-      <div className="container bg-white rounded-md flex items-center gap-10 flex-col lg:flex-row">
+      <div className="container bg-white rounded-md flex items-center gap-0 md:gap-10 flex-col lg:flex-row">
         <Form
           bill={bill}
           people={people}
