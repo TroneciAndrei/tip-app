@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 import dollar from "../images/icon-dollar.svg";
 import person from "../images/icon-person.svg";
 
