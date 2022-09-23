@@ -2,6 +2,29 @@ import dollar from "../images/icon-dollar.svg";
 import person from "../images/icon-person.svg";
 
 const Form = ({ setBill, setTip, setPeople, tip, bill, people }) => {
+  const buttons = [
+    {
+      value: 5,
+      text: "5%",
+    },
+    {
+      value: 10,
+      text: "10%",
+    },
+    {
+      value: 15,
+      text: "15%",
+    },
+    {
+      value: 25,
+      text: "25%",
+    },
+    {
+      value: 50,
+      text: "50%",
+    },
+  ];
+
   const handlerBill = (e) => {
     const target = +e.target.value.replace(/[^\d]+/g, "");
     setBill(target);
@@ -40,51 +63,18 @@ const Form = ({ setBill, setTip, setPeople, tip, bill, people }) => {
             Selected Tip %
           </p>
           <div className="grid gap-[10px] grid-cols-2 lg:grid-cols-3">
-            <button
-              type="button"
-              value="5"
-              onClick={handlerTip}
-              className="bg-[#00494d] py-2 px-10 text-center text-white font-bold rounded-md focus:bg-[#33c2ae]"
-            >
-              5%
-            </button>
-
-            <button
-              type="button"
-              value="10"
-              onClick={handlerTip}
-              className="bg-[#00494d] py-2 px-10 text-center text-white font-bold rounded-md focus:bg-[#33c2ae]"
-            >
-              10%
-            </button>
-
-            <button
-              type="button"
-              value="15"
-              onClick={handlerTip}
-              className="bg-[#00494d] py-2 px-10 text-center text-white font-bold rounded-md focus:bg-[#33c2ae]"
-            >
-              15%
-            </button>
-
-            <button
-              type="button"
-              value="25"
-              onClick={handlerTip}
-              className="bg-[#00494d] py-2 px-10 text-center text-white font-bold rounded-md focus:bg-[#33c2ae]"
-            >
-              25%
-            </button>
-
-            <button
-              type="button"
-              value="50"
-              onClick={handlerTip}
-              className="bg-[#00494d] py-2 px-10 text-center text-white font-bold rounded-md focus:bg-[#33c2ae]"
-            >
-              50%
-            </button>
-
+            {buttons.map((button) => {
+              return (
+                <button
+                  type="button"
+                  onClick={handlerTip}
+                  className="bg-[#00494d] py-2 px-10 text-center text-white font-bold rounded-md focus:bg-[#33c2ae]"
+                  value={button.value}
+                >
+                  {button.text}
+                </button>
+              );
+            })}
             <input
               type="text"
               placeholder="Custom"
